@@ -9,4 +9,4 @@ def fizzbuzz(num):
         else:
             print(number)
             
-fizzbuzz(20)
+
