@@ -3,14 +3,13 @@ class Solution:
         answer=[]
         for i in range(1, n+1):
             if i%3 == 0 and i%5 == 0:
-                answer[i]= "fizzbuzz"
+                answer.append("FizzBuzz")
             elif i%5 == 0:
-                answer[i] = "buzz"
+                answer.append("Buzz")
             elif i%3 == 0:
-                answer[i]= "fizz"
+                answer.append("Fizz")
             else:
-                answer[i]= str(i)
+                answer.append(str(i))
         return answer
-            
             
 
