@@ -1,7 +1,6 @@
 # Enter your code here. Read input from STDIN. Print output to STDOUT
 from collections import defaultdict
 size = list(map(int, input().split()))
-groupA = []
 groupB = []
 
 groupA = defaultdict(list)
