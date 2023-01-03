@@ -8,7 +8,7 @@ class Solution:
             
             abnormal1 = nums[mid] <= nums[right] and target > nums[right]
             abnormal2 = nums[left] <= nums[mid] and target < nums[left]
-            
+        
             if nums[mid] == target:
                 return mid
             if abnormal1 or abnormal2 :
@@ -21,8 +21,6 @@ class Solution:
                     left = mid + 1
                 else:
                     right = mid - 1
-                    
-                
             
             mid = left + (right - left)//2
                 
