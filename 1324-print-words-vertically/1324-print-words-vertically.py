@@ -4,11 +4,9 @@ class Solution:
         s = s.split()
         ans = []
         maxCol = len(max(s, key = lambda x : len(x)))
-        print(maxCol)
         
         for col in range(maxCol):
             temp = ''
-            
             for row in range(len(s)):
                 if col < len(s[row]):
                     temp += s[row][col]
