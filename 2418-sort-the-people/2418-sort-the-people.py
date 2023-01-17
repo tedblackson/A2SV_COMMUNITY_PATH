@@ -3,10 +3,15 @@ class Solution:
         
         
         for i in range(len(heights)):
-            for j in range(1, len(heights)):
-                if heights[j] > heights[j - 1]:
-                    heights[j], heights[j - 1] = heights[j - 1], heights[j]
-                    names[j], names[j - 1]  = names[j - 1], names[j]
+            smallest = -math.inf
+            index = 0
+            for j in range(i , len(heights)):
+                if heights[j] > smallest:
+                    smallest = heights[j]
+                    index = j
+            heights[i], heights[index] = heights[index], heights[i]
+            names[i], names[index] = names[index], names[i]
+            
         return names
                 
         
