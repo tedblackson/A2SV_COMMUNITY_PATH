@@ -6,24 +6,15 @@
 class Solution:
     ans = None
     def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        
-        if head == None or head.next  == None:
+        if not head or not head.next:
             self.ans = head
             return head
         self.reverseList(head.next)
-        
         head.next.next = head
         head.next = None
         return self.ans
+    
 
-        
-            
-            
-            
-    
     
         
         
-            
-            
-            
