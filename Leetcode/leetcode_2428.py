@@ -1,5 +1,5 @@
 class Solution:
-    def maxSum(self, grid: List[List[int]]) -> int:
+    def maxSum(self, grid):
         res = 0
         for row in range(len(grid) - 2):
             for col in range(len(grid[0]) - 2):
