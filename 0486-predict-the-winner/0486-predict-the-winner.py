@@ -4,27 +4,13 @@ class Solution:
         
         def predictor(left , right):
             
-            if right - left + 1 == 1:
-                return [nums[right], 0]
+            if right == left:
+                return nums[right]
             
+            result1 = nums[left] - predictor(left + 1, right)
+            result2 = nums[right] - predictor(left, right - 1)
             
-            pred_l = predictor(left + 1, right)
-            pred_r = predictor(left, right - 1)
-            
-            result = [nums[left] + pred_l[1], nums[right] + pred_r[1]]
-            
-            if result[0] > result[1]:
-                p1 = result[0]
-                p2 = pred_l[0]
-            elif result[0] < result[1]:
-                p1 = result[1]
-                p2 = pred_r[0]
-            else:
-                p1 = result[0]
-                p2 = min(pred_l[0], pred_r[0])
-                
-            return p1, p2
-        
-        
-        result = predictor(0, len(nums) - 1)
-        return result[0] >= result[1]
+            return max(result1, result2)
+    
+        ans = predictor(0, len(nums) -1)
+        return ans >= 0
