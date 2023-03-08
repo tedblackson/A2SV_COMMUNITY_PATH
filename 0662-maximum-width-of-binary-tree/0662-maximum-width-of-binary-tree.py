@@ -7,7 +7,8 @@
 class Solution:
     def widthOfBinaryTree(self, root: Optional[TreeNode]) -> int:
         
-        count = defaultdict(list)
+        count = defaultdict(lambda : [math.inf, -math.inf])
+        
     
         maximum = 0
         
@@ -15,7 +16,8 @@ class Solution:
             
             if not root: return 
             
-            count[row].append(col)
+            count[row][-1] = max(count[row][-1], col)
+            count[row][0] = min(count[row][0], col)
             
             dfs(root.left, row + 1 , col * 2 - 1 )
             dfs(root.right, row + 1, col * 2 )
