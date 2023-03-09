@@ -13,16 +13,12 @@ class Solution:
                 ans = True
                 return
             
-            for step in range(n):
+            for step in range(n - start ):
                 
-                if start + step >= n:
-                    continue
+             
                 
-                cur = s[start: start + step + 1]
-                # print('before', cur, end = ', ')
+                cur = int(s[start: start + step + 1])
                 
-                cur = int(cur)
-                # print('after', cur)
                 
                 if start == 0 or prev - cur == 1:
                     backtrack(cur, start + step + 1)
