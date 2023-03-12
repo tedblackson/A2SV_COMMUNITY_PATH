@@ -2,18 +2,21 @@ class Solution:
     def combine(self, n: int, k: int) -> List[List[int]]:
         
         ans = []
-        
-        def backtrack(arr, curr):
+    
+        def backtrack( cur, arr):
             
             if len(arr) == k:
-                ans.append(arr.copy())
+                ans.append(arr[:])
                 return
-            for i in range(curr + 1 , n + 1):
-                arr.append(i)
-                backtrack(arr, i)
+            
+            for candidate in range(cur, n + 1):
+                arr.append(candidate)
+                backtrack(candidate + 1 , arr)
                 arr.pop()
+            
+        backtrack(1 ,[])
+            
                 
-        backtrack([], 0)
                 
         return ans
             
