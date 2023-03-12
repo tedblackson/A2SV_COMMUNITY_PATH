@@ -1,24 +1,21 @@
 class Solution:
     def subsets(self, nums: List[int]) -> List[List[int]]:
-        ans = []
-        n = len(nums)
+       
         
-        def backtrack(arr, cur, n):
+        ans = []
+        
+        def backtrack(arr, cur):
             ans.append(arr[:])
     
-            if len(arr) == n:
+            if len(arr) == len(nums):
                 return
         
             for i in range(cur, len(nums)):
 
                 arr.append(nums[i])
 
-                backtrack(arr, i + 1 , n)
+                backtrack(arr, i + 1 )
                 
                 arr.pop()
-        backtrack([], 0, n)
-        return ans
-                
-            
-            
-            
+        backtrack([], 0)
+        return ans            
