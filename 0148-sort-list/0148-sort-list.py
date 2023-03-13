@@ -22,33 +22,30 @@ class Solution:
             return dummy.next
         
         def mid(node):
-            slow = node
-            fast = node.next
+            slow = fast = node
             
             while fast and fast.next:
                 fast = fast.next.next
                 slow = slow.next
             return slow
         
-        # def cut(node, middle):
-        #     while node and node.next != middle:
-        #         node = node.next
-        #     node.next = None
+        def cut(node, middle):
+            
+            while node and node.next != middle:
+                node = node.next
+            node.next = None
             
             
         def mergeSort(node):
             if not node or not node.next:
                 return node
-            first= node
-            second = mid(node)
-    
-            temp = second.next
-            second.next = None
-            second = temp
             
-            first = mergeSort(first)
-            second = mergeSort(second)              
-            return merge(first, second)
+            middle = mid(node)
+            cut(node, middle)
+            
+            node = mergeSort(node)
+            middle = mergeSort(middle)              
+            return merge(node, middle)
             
         ans = mergeSort(head)
         return ans
