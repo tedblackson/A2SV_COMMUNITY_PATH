@@ -5,12 +5,11 @@ class Solution:
         ans = False
         if n < 3:
             return False
-        if n == 3:
-            return int(num[0]) + int(num[1]) == int(num[2])
+        
         
         def backtrack(prev1, prev2, start, count):
             nonlocal ans
-            
+
             if ans == True:
                 return
             
