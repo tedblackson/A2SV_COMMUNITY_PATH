@@ -12,7 +12,6 @@ class Solution:
                 graph[parent].append(child)
                 if parent not in supplies:
                     indegrees[child] += 1
-        print
             
         
         for recipe in recipes:
