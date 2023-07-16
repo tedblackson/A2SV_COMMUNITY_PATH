@@ -1,41 +1,43 @@
 class Solution:
     def countSmaller(self, nums: List[int]) -> List[int]:
+        n = len(nums)
         
-        ans = [0] * len(nums)
-        nums = [(num, i) for i, num in enumerate(nums)]
+        nums = [[num, i] for i, num in enumerate(nums)]
+        ans = [0]*n
         
         
-        def mergeSort(start, end):
+        def mergesort(start, end):
             
-            if start >= end:
-                
-                return [nums[start]]
+            if start >= end: return
             
             
             mid = start + (end - start)//2
             
-            leftHalf = mergeSort(start, mid) 
-            rightHalf = mergeSort(mid + 1, end)
+            mergesort(start , mid)
+            mergesort(mid + 1 , end)
+            
             
             one , two = start , mid + 1
             
             
             while one <= mid and two <= end:
                 
-                if nums[one][0] <= nums[two][0]:
-                    
-                    ans[nums[one][1]] += two - mid - 1
+                if nums[one] <= nums[two]:
+                    ans[nums[one][1]] += (two - mid - 1)
                     one += 1
                 else:
                     two += 1
+            
             while one <= mid:
-                ans[nums[one][1]] += two - mid -1
+                ans[nums[one][1]] += (two- mid - 1)
                 one += 1
+                    
+            nums[start : end + 1] = sorted(nums[start: end + 1])
             
-            
-            nums[start : end + 1] = sorted(nums[start:end + 1])
-            
-        mergeSort(0, len(nums) - 1)
+        mergesort(0, n - 1)
         
-        return ans            
+        return ans
+            
+            
+            
         
