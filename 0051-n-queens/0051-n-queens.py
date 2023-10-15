@@ -2,7 +2,6 @@ class Solution:
     def solveNQueens(self, n: int) -> List[List[str]]:
         ans = []
         
-        visited = set()
         board = ["." * n for _ in range(n)]
         directions = [[1, 0], [0, 1], [-1, 0], [0, -1], [1, 1], [-1, -1], [1, -1], [-1, 1]]
         
